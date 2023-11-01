@@ -60,7 +60,7 @@ class DetailItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: 70,
       width: double.infinity,
       child: DecoratedBox(
         decoration: BoxDecoration(
@@ -118,12 +118,12 @@ class DetailItem extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                Text(info),
+                Text(info,style: const TextStyle(fontSize: 17),),
               ],
             ),
             Padding(
               padding: const EdgeInsets.only(right: 30.0),
-              child: Text(action),
+              child: Text(action,style: const TextStyle(fontSize: 17),),
             ),
           ],
         ),

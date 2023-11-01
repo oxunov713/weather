@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/utils/icon_path_extension.dart';
-import 'package:weather_app/utils/temp_extension.dart';
-import 'package:weather_app/utils/time_extensions.dart';
+import 'package:weather/utils/icon_path_extension.dart';
+import 'package:weather/utils/temp_extension.dart';
+import 'package:weather/utils/time_extensions.dart';
+
 
 import '../../../models/weather_model/day_model.dart';
 import '../../../styles/app_colors.dart';
@@ -67,7 +68,7 @@ class WeekItem extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
                         weekDay,
-                        style: const TextStyle(fontSize: 12),
+                        style: const TextStyle(fontSize: 14),
                       ),
                     ),
                     Row(

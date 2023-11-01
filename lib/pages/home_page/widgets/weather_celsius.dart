@@ -18,39 +18,45 @@ class WeatherCelsius extends StatelessWidget {
       padding: const EdgeInsets.only(
         top: 4.0,
         bottom: 4.0,
-        right: 30.0,
+        //right: 30.0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image(
             image: AssetImage(iconPath),
-            height: 180,
-            width: 200,
+            height: 140,
+            width: 160,
             fit: BoxFit.cover,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    celsius,
+                    celsius.substring(0, 2),
                     style: const TextStyle(
-                      fontSize: 100,
+                      fontSize: 80,
                       fontWeight: FontWeight.bold,
                       height: 0.8,
                     ),
                   ),
                   Text(
-                    condition,
+                    (condition.length > 16)
+                        ? condition.substring(0, 4)
+                        : condition,
                     style: const TextStyle(
-                      fontSize: 24,
+                      fontSize: 22,
                     ),
                   ),
                 ],
               ),
-              const Text("°C"),
+              const Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Text("°C"),
+              ),
             ],
           )
         ],

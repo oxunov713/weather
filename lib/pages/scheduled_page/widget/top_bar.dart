@@ -24,7 +24,7 @@ class TopBar extends StatelessWidget {
             "Next 7 Days",
             style: TextStyle(
               fontWeight: FontWeight.w400,
-              fontSize: 15,
+              fontSize: 17,
             ),
           ),
           const SizedBox(

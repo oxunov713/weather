@@ -9,6 +9,7 @@ class AppIcons {
   static const icCloudyRainSun = "assets/icons/ic_cloudy_rain_sun.png";
   static const icCloudySun = "assets/icons/ic_cloudy_sun.png";
   static const icSun = "assets/icons/ic_sun.png";
+  static const icSnow= "assets/icons/snow.png";
 
   static const icUmbrella = "assets/icons/ic_umbrella.png";
   static const icHumidity = "assets/icons/ic_humidity.jpg";

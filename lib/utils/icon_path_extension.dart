@@ -4,7 +4,7 @@ extension GetIconPath on String {
   String get weatherToIconPath => switch (this) {
     "clear-day" => AppIcons.icSun,
     "rain" => AppIcons.icCloudyRain,
-    "snow" => AppIcons.icCloudy,
+    "snow" => AppIcons.icSnow,
     "cloudy" || "partly-cloudy-night" || "clear-night" => AppIcons.icCloudy,
     "partly-cloudy-day" => AppIcons.icCloudySun,
     _ => AppIcons.icCloudyRainSun,

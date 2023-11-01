@@ -24,7 +24,7 @@ class ScheduleOfWeek extends StatelessWidget {
                 "Today",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 14,
+                  fontSize: 16,
                 ),
               ),
               SizedBox(width: 10),
@@ -32,7 +32,7 @@ class ScheduleOfWeek extends StatelessWidget {
                 "Tomorrow",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 14,
+                  fontSize: 16,
                 ),
               ),
             ],
@@ -52,7 +52,7 @@ class ScheduleOfWeek extends StatelessWidget {
                   "Next 7 Days",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                    fontSize: 16,
                     decoration: TextDecoration.underline,
                   ),
                 ),

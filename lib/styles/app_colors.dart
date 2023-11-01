@@ -11,6 +11,7 @@ class AppColors {
   static const white50 = Color(0x80FFFFFF);
 
   static const divider = Color(0xFFAF8056);
+  static const appbar =Color(0xFFFFA500);
 
   static const blue = Color(0x1A0000FF);
 

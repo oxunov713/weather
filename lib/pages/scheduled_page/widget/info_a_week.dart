@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/utils/icon_path_extension.dart';
-import 'package:weather_app/utils/temp_extension.dart';
+import 'package:weather/utils/icon_path_extension.dart';
+import 'package:weather/utils/temp_extension.dart';
 
 import '../../../../../styles/app_colors.dart';
 import '../../../../../styles/app_icons.dart';
@@ -24,7 +24,7 @@ class InfoAWeek extends StatelessWidget {
       ),
       child: Center(
         child: SizedBox(
-          height: 180,
+          height: 200,
           width: double.infinity,
           child: DecoratedBox(
             decoration: BoxDecoration(
@@ -32,19 +32,26 @@ class InfoAWeek extends StatelessWidget {
               color: AppColors.white30,
             ),
             child: Padding(
-              padding: EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0),
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Tomorrow"),
+                      const Text(
+                        "Tomorrow",
+                        style: TextStyle(fontSize: 20),
+                      ),
                       Row(
                         children: [
-                          Text("${(day?.temp ?? 0.0).fahrenheitToCelsius}°"),
-                          SizedBox(width: 10),
+                          Text(
+                            "${(day?.temp ?? 0.0).fahrenheitToCelsius}°",
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          const SizedBox(width: 10),
                           Image(
-                            image: AssetImage((day?.icon ?? "").weatherToIconPath),
+                            image:
+                                AssetImage((day?.icon ?? "").weatherToIconPath),
                             width: 55,
                             height: 55,
                           )
@@ -142,7 +149,7 @@ class CardItem extends StatelessWidget {
             padding: EdgeInsets.only(left: isDefective ? 20.0 : 0.0),
             child: Text(
               text,
-              style: const TextStyle(fontSize: 10),
+              style: const TextStyle(fontSize: 15),
             ),
           )
         ],

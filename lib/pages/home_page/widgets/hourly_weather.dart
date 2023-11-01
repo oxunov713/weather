@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/styles/app_colors.dart';
-import 'package:weather_app/utils/icon_path_extension.dart';
-import 'package:weather_app/utils/temp_extension.dart';
+import 'package:weather/utils/icon_path_extension.dart';
+import 'package:weather/utils/temp_extension.dart';
 
 import '../../../models/weather_model/hour_model.dart';
+import '../../../styles/app_colors.dart';
 
 class HourlyWeather extends StatelessWidget {
   const HourlyWeather({
@@ -13,7 +13,9 @@ class HourlyWeather extends StatelessWidget {
 
   final List<Hour>? hours;
 
-  bool checkTimeNow(Hour hour) => "${DateTime.now().hour}".padLeft(2, "0") == (hour.datetime?.substring(0, 2) ?? "00");
+  bool checkTimeNow(Hour hour) =>
+      "${DateTime.now().hour}".padLeft(2, "0") ==
+      (hour.datetime?.substring(0, 2) ?? "00");
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class HourlyWeather extends StatelessWidget {
     }
 
     return SizedBox(
-      height: 120,
+      height: 150,
       width: double.infinity,
       child: Column(
         children: [
@@ -76,11 +78,10 @@ class HourlyWeather extends StatelessWidget {
                 Hour hour = hours![index];
                 return Padding(
                   padding: const EdgeInsets.only(
-                    bottom: 15.0,
+                   // bottom: 15.0,
                   ),
                   child: SizedBox(
-                    width: 45,
-                    height: 60,
+                    width: 60,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: checkTimeNow(hour)
@@ -97,28 +98,34 @@ class HourlyWeather extends StatelessWidget {
                               ? const Text(
                                   "now",
                                   style: TextStyle(
-                                    fontSize: 11,
+                                    fontSize: 13,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 )
                               : Text(
                                   hour.datetime?.substring(0, 5) ?? "",
                                   style: const TextStyle(
-                                    fontSize: 11,
+                                    fontSize: 13,
                                   ),
                                 ),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           Image(
                             image: AssetImage(
                               (hour.icon ?? "").weatherToIconPath,
                             ),
-                            width: 24,
-                            height: 24,
+                            width: 35,
+                            height: 35,
+                          ),
+                          const SizedBox(
+                            height: 15,
                           ),
                           Text(
                             "${(hour.temp ?? 0.0).fahrenheitToCelsius}°",
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 11,
+                              fontSize: 13,
                             ),
                           ),
                         ],
