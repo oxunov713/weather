@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:weather/styles/app_colors.dart';
+
+import '../../../styles/app_colors.dart';
+import '../../../styles/app_icons.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -8,64 +9,63 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 18.0,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15.0,
         vertical: 8.0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(
-            CupertinoIcons.search,
-            size: 40,
+          IconButton(
+            onPressed: () {},
+            icon: const Image(
+              width: 24,
+              height: 24,
+              image: AssetImage(AppIcons.icSearch),
+            ),
           ),
-          Row(
+          const Row(
             children: [
-              Container(
-                margin: EdgeInsets.only(right: 10),
-                height: 8,
-                width: 8,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.appBarCenter,
-                ),
+              TabPageSelectorIndicator(
+                backgroundColor: AppColors.black,
+                borderColor: AppColors.black,
+                size: 8.0,
               ),
-              Container(
-                margin: EdgeInsets.only(right: 10),
-                height: 8,
-                width: 8,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.appBarCenter,
-                ),
+              TabPageSelectorIndicator(
+                backgroundColor: AppColors.black,
+                borderColor: AppColors.black,
+                size: 8.0,
               ),
-              Container(
-                margin: EdgeInsets.only(right: 10),
-                height: 8,
-                width: 35,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                child: SizedBox(
+                  height: 8.0,
+                  width: 34.0,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: AppColors.black,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(4.0),
+                      ),
+                    ),
                   ),
-                  color: AppColors.appBarCenter,
                 ),
               ),
-              Container(
-                height: 8,
-                width: 8,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.appBarCenter,
-                ),
+              TabPageSelectorIndicator(
+                backgroundColor: AppColors.black,
+                borderColor: AppColors.black,
+                size: 8.0,
               ),
             ],
           ),
-          Icon(
-            Icons.menu,
-            //  IconData(AppIcons.icMenu,),
-            size: 40,
-            color: AppColors.appBarMenu,
-          )
+          IconButton(
+            onPressed: () {},
+            icon: const Image(
+              width: 24,
+              height: 24,
+              image: AssetImage(AppIcons.icMenu),
+            ),
+          ),
         ],
       ),
     );

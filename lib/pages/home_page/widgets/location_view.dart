@@ -1,36 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:weather/styles/app_colors.dart';
-import 'package:weather/utils/time_extensions.dart';
+
+import '../../../utils/time_extensions.dart';
+import '../../../styles/app_colors.dart';
 
 class LocationView extends StatelessWidget {
-  const LocationView({super.key});
+  const LocationView({
+    required this.placeName,
+    super.key,
+  });
+
+  final String placeName;
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: 20,left: 15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Toshkent,\nUzbekistan",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w500,
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 18.0,
+          vertical: 8.0,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              placeName,
+              style: const TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 7),
-            child: Text(
-             DateTime.now().weekMonthDay,
-              style: TextStyle(
-                fontSize: 18,
+            Text(
+              DateTime.now().weekMonthDay,
+              style: const TextStyle(
+                fontSize: 11.0,
                 color: AppColors.grayText,
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
+          ],
+        ),
+      );
 }

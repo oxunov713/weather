@@ -1,28 +1,33 @@
-import 'package:flutter/cupertino.dart';
-import 'package:weather/styles/app_colors.dart';
-import 'package:weather/styles/app_icons.dart';
+import 'package:flutter/material.dart';
 
 class WeatherCelsius extends StatelessWidget {
-  const WeatherCelsius({super.key});
+  const WeatherCelsius({
+    required this.iconPath,
+    required this.condition,
+    required this.celsius,
+    super.key,
+  });
+
+  final String iconPath;
+  final String condition;
+  final String celsius;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-        top: 4,
-        bottom: 4,
-        right: 30,
+      padding: const EdgeInsets.only(
+        top: 4.0,
+        bottom: 4.0,
+        right: 30.0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Image(
-            height: 220,
-            width: 220,
+            image: AssetImage(iconPath),
+            height: 180,
+            width: 200,
             fit: BoxFit.cover,
-            image: AssetImage(
-              AppIcons.icCloudyRainSun,
-            ),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,32 +35,22 @@ class WeatherCelsius extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    "19",
-                    style: TextStyle(
+                    celsius,
+                    style: const TextStyle(
+                      fontSize: 100,
                       fontWeight: FontWeight.bold,
-                      fontSize: 80,
-                      color: AppColors.gradus,
-                      height: 1.1,
+                      height: 0.8,
                     ),
                   ),
                   Text(
-                    "Rainy",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
+                    condition,
+                    style: const TextStyle(
                       fontSize: 24,
-                      color: AppColors.gradus,
                     ),
                   ),
                 ],
               ),
-              Text(
-                "°C",
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 20,
-                  color: AppColors.gradus,
-                ),
-              ),
+              const Text("°C"),
             ],
           )
         ],

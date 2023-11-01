@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/app_colors.dart';
-import 'widgets/custom_appbar.dart';
-import 'widgets/tomorrow_info.dart';
-import 'widgets/weeks_info.dart';
+import '../../../../styles/app_colors.dart';
+import '../../models/weather_model/day_model.dart';
+import 'widget/info_a_week.dart';
+import 'widget/next_days.dart';
+import 'widget/top_bar.dart';
 
+class ScheduledPage extends StatelessWidget {
+  const ScheduledPage({
+    required this.days,
+    super.key,
+  });
 
-class SceduledPage extends StatefulWidget {
-  const SceduledPage({super.key});
+  final List<Day> days;
 
-  @override
-  State<SceduledPage> createState() => _SceduledPageState();
-}
-
-class _SceduledPageState extends State<SceduledPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,15 +26,20 @@ class _SceduledPageState extends State<SceduledPage> {
           ),
         ),
         child: SafeArea(
-          child: ListView(
-            children: const [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomAppbar(),
-                  TommorowInfo(),
-                  WeeksInfo(),
-                ],
+          child: Column(
+            children: [
+              const TopBar(),
+              Expanded(
+                child: ListView(
+                  children: [
+                    InfoAWeek(
+                      day: days.skip(1).take(1).firstOrNull,
+                    ),
+                    NextDays(
+                      days: days.skip(2).take(6).toList(),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

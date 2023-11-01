@@ -8,10 +8,11 @@ enum WeekDay {
   sunday("Sunday");
 
   const WeekDay(this.dayName);
+
   final String dayName;
 }
 
-enum MothName {
+enum MonthName {
   january("January"),
   february("February"),
   march("March"),
@@ -25,20 +26,29 @@ enum MothName {
   november("November"),
   december("December");
 
-  const MothName(this.monthName);
+  const MonthName(this.monthName);
+
   final String monthName;
 }
 
 extension TimeExtension on DateTime {
   String get weekMonthDay {
-    /// weekday -> starts with monday equal to 1,
+    /// weekday -> starts with Monday equal to 1,
     /// ends Sunday equal to 7
     final week = WeekDay.values[weekday - 1].dayName.substring(0, 3);
 
-    /// weekday -> starts with January equal to 1,
+    /// month -> starts with January equal to 1,
     /// ends December equal to 12
-    final m = MothName.values[month - 1].monthName.substring(0, 3);
+    final m = MonthName.values[month - 1].monthName.substring(0, 3);
 
     return "$week, $m $day";
+  }
+}
+
+extension GetWeekName on int {
+  String get weekName {
+    final DateTime time = DateTime.fromMillisecondsSinceEpoch(this * 1000);
+
+    return WeekDay.values[time.weekday - 1].dayName;
   }
 }

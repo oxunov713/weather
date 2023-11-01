@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+
+import '../../../models/weather_model/day_model.dart';
 import '../../scheduled_page/scheduled_page.dart';
-import '/styles/app_colors.dart';
 
 class ScheduleOfWeek extends StatelessWidget {
-  const ScheduleOfWeek({Key? key}) : super(key: key);
+  const ScheduleOfWeek({
+    required this.days,
+    super.key,
+  });
+
+  final List<Day> days;
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +24,15 @@ class ScheduleOfWeek extends StatelessWidget {
                 "Today",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 15,
+                  fontSize: 14,
                 ),
               ),
-              SizedBox(width: 15),
+              SizedBox(width: 10),
               Text(
                 "Tomorrow",
                 style: TextStyle(
-                  color: AppColors.grayText,
                   fontWeight: FontWeight.bold,
-                  fontSize: 15,
+                  fontSize: 14,
                 ),
               ),
             ],
@@ -37,28 +42,24 @@ class ScheduleOfWeek extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const SceduledPage(),
+                  builder: (context) => ScheduledPage(days: days),
                 ),
               );
             },
-            child: Row(
+            child: const Row(
               children: [
-                const Text(
+                Text(
                   "Next 7 Days",
                   style: TextStyle(
-                    color: AppColors.grayText,
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 14,
+                    decoration: TextDecoration.underline,
                   ),
                 ),
-                const SizedBox(width: 5),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    size: 14,
-                    color: AppColors.grayText,
-                  ),
+                SizedBox(width: 5),
+                Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 12,
                 ),
               ],
             ),

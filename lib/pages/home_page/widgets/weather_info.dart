@@ -1,13 +1,20 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:weather/utils/list_extension.dart';
 
 import '../../../styles/app_colors.dart';
 import '../../../styles/app_icons.dart';
+import '../../../utils/list_extension.dart';
 
 class WeatherInfo extends StatelessWidget {
-  const WeatherInfo({super.key});
+  const WeatherInfo({
+    required this.humidity,
+    required this.rainFall,
+    required this.wind,
+    super.key,
+  });
+
+  final double rainFall;
+  final double wind;
+  final double humidity;
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +25,17 @@ class WeatherInfo extends StatelessWidget {
           DetailItem(
             icon: AppIcons.icUmbrella,
             info: "RainFall",
-            action: "3cm",
+            action: "${rainFall}cm",
           ),
           DetailItem(
             icon: AppIcons.icWind,
             info: "Wind",
-            action: "19km/h",
+            action: "${wind}km/h",
           ),
           DetailItem(
-            icon: AppIcons.icHumdity,
+            icon: AppIcons.icHumidity,
             info: "Humidity",
-            action: "64%",
+            action: "${humidity.toInt()}%",
           ),
         ].addBetween(
           const SizedBox(height: 5),
@@ -64,7 +71,7 @@ class DetailItem extends StatelessWidget {
             width: 1.0,
             color: AppColors.white50,
           ),
-          color: AppColors.white36,
+          color: AppColors.white30,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,15 +97,14 @@ class DetailItem extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                             color: AppColors.white,
-                            boxShadow:  [
+                            boxShadow: const [
                               BoxShadow(
                                 offset: Offset(0.5, 10),
                                 spreadRadius: 0.1,
                                 blurRadius: 10,
                                 color: AppColors.blue,
                               )
-                            ]
-                        ),
+                            ]),
                       ),
                     ),
                   )
